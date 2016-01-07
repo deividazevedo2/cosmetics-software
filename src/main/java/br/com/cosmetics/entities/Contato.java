@@ -21,14 +21,8 @@ public class Contato {
 
 	private String telefoneResidencial;
 
-	private String telefoneTrabalho;
-
 	@Length(min = 10, max = 14, message = "Celular Invalido!")
 	private String celular;
-
-	private String facebok;
-
-	private String twitter;
 
 	@Pattern(regexp = "^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}$", message = "Email Invalido!")
 	private String email;
@@ -63,36 +57,12 @@ public class Contato {
 		this.telefoneResidencial = telefoneResidencial;
 	}
 
-	public String getTelefoneTrabalho() {
-		return telefoneTrabalho;
-	}
-
-	public void setTelefoneTrabalho(String telefoneTrabalho) {
-		this.telefoneTrabalho = telefoneTrabalho;
-	}
-
 	public String getCelular() {
 		return celular;
 	}
 
 	public void setCelular(String celular) {
 		this.celular = celular;
-	}
-
-	public String getFacebok() {
-		return facebok;
-	}
-
-	public void setFacebok(String facebok) {
-		this.facebok = facebok;
-	}
-
-	public String getTwitter() {
-		return twitter;
-	}
-
-	public void setTwitter(String twitter) {
-		this.twitter = twitter;
 	}
 
 	public String getEmail() {
