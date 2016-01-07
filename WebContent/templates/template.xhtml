@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+
+	<h:head>
+		<link rel="stylesheet" href="../../resources/theme.css"
+			type="text/css" />
+		<link rel="shortcut icon" href="../resources/favicon.ico"
+			type="image/x-icon" />
+		<style type="text/css">
+.ui-layout-north {
+	z-index: 20 !important;
+	overflow: visible !important;;
+}
+
+.ui-layout-north .ui-layout-unit-content {
+	overflow: visible !important;
+}
+</style>
+		<title><ui:insert name="title">Biblioteca</ui:insert></title>
+	</h:head>
+
+	<h:body>
+
+		<p:layout fullPage="true">
+			<p:layoutUnit id="top" position="north" size="50">
+
+				<h:form>
+					<p:menubar>
+						<p:menuitem value="Home" url="/faces/paginas/index.xhtml"
+							icon="ui-icon-home" />
+
+						<p:menuitem value="Usuários"
+							outcome="/faces/paginas/usuarios.xhtml" icon="ui-icon-person" />
+
+						<p:menuitem value="Sobre" outcome="/faces/paginas/sobre.xhtml"
+							icon="ui-icon-info" />
+						<p:menuitem value="Logout" action="#{logoutBean.efetuarLogout}"
+							icon="ui-icon-extlink" />
+
+						<f:facet name="options">
+							<p:commandButton style="margin-right:10px"
+								value="Empréstimos Expirados" icon="ui-icon-alert"
+								action="#{indexEmprestimosBean.abrirDialogo}" process="@this"
+								update="@none" />
+						</f:facet>
+					</p:menubar>
+
+				</h:form>
+
+			</p:layoutUnit>
+
+			<p:layoutUnit id="bottom" position="south" size="60">
+				<center>
+					Instituto Federal de Educação Ciência e Tecnologia da Paraíba -
+					Campus Monteiro<br />Análise e Desenvolvimento de Sistemas -
+					2012.2
+				</center>
+			</p:layoutUnit>
+
+			<p:layoutUnit id="left" position="west" size="300" resizable="false"
+				closable="false" collapsible="true" header="Menu" minSize="200">
+				<p:menu style="width: 280px">
+					<p:menuitem value="Alunos" url="/faces/paginas/alunos.xhtml" />
+					<p:menuitem value="Livros" url="/faces/paginas/livros.xhtml" />
+					<p:menuitem value="Empréstimos"
+						url="/faces/paginas/emprestimos.xhtml" />
+					<p:menuitem value="Histórico"
+						url="/faces/paginas/historico.xhtml" />
+
+				</p:menu>
+			</p:layoutUnit>
+
+			<p:layoutUnit id="center" position="center">
+				<ui:insert name="center" />
+			</p:layoutUnit>
+
+		</p:layout>
+
+	</h:body>
+
+</f:view>
+</html>
