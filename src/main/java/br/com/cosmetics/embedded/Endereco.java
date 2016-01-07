@@ -16,6 +16,7 @@ public class Endereco {
 	@Pattern(regexp = "[0-9]{5}-[0-9]{3}", message = "CEP Invalido!")
 	private String cep;
 	private String uf;
+	private String pontoDeReferencia;
 
 	public Endereco() {
 	}
@@ -66,6 +67,14 @@ public class Endereco {
 
 	public void setUf(String uf) {
 		this.uf = uf;
+	}
+
+	public String getPontoDeReferencia() {
+		return pontoDeReferencia;
+	}
+
+	public void setPontoDeReferencia(String pontoDeReferencia) {
+		this.pontoDeReferencia = pontoDeReferencia;
 	}
 
 }
