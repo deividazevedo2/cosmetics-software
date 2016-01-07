@@ -8,6 +8,7 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
 		<class>br.com.cosmetics.entities.Pessoa</class>
+		<class>br.com.cosmetics.entities.Usuario</class>
 		<class>br.com.cosmetics.entities.Contato</class>
 		<class>br.com.cosmetics.embedded.Endereco</class>
 
