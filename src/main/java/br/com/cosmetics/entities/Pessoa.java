@@ -1,5 +1,7 @@
 package br.com.cosmetics.entities;
 
-public class Pessoa {
+import java.io.Serializable;
+
+public class Pessoa implements Serializable {
 
 }
