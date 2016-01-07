@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: cosmetics-software
+Bundle-SymbolicName: cosmetics-software
+Bundle-Version: 1.0.0.qualifier
+Export-Package: br.com.cosmetics.embedded,
+ br.com.cosmetics.entities,
+ br.com.cosmetics.util
