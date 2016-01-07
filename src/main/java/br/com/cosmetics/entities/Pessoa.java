@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -27,7 +25,6 @@ import br.com.cosmetics.embedded.Endereco;
 @Table(name = "TB_PESSOA")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorValue("P")
-@DiscriminatorColumn(name = "TIPO_PESSOA", discriminatorType = DiscriminatorType.STRING)
 public class Pessoa implements Serializable {
 
 	/**
@@ -40,30 +37,18 @@ public class Pessoa implements Serializable {
 	@Column(name = "ID")
 	private Long id;
 
-	@Column(name = "PRIMEIRO_NOME")
-	private String primeiroNome;
-
-	@Column(name = "SEGUNDO_NOME")
-	private String segundoNome;
+	@Column(name = "NOME")
+	private String nome;
 
 	@Column(name = "CPF", unique = true)
 	@Length(min = 11, max = 14, message = "CPF Invalido!")
 	private String cpf;
 
-	@Column(name = "RG", unique = true)
-	private String rg;
-
 	@Column(name = "DATA_NASCIMENTO")
 	private String dataNascimento;
 
-	@Column(name = "GRUPO")
-	private String grupo;
-
 	@Column(name = "SEXO")
 	private String sexo;
-
-	@Column(name = "NATURALIDADE")
-	private String naturalidade;
 
 	@Embedded
 	private Endereco endereco;
@@ -71,12 +56,6 @@ public class Pessoa implements Serializable {
 	@OneToOne(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
 	@JoinColumn(name = "CONTATO_FK", nullable = false)
 	private Contato contato;
-
-	@Column(name = "MATRICULA", unique = true)
-	private String matriculaSuap;
-
-	@Column(name = "SENHA")
-	private String senha;
 
 	public Pessoa() {
 	}
@@ -89,20 +68,12 @@ public class Pessoa implements Serializable {
 		this.id = id;
 	}
 
-	public String getPrimeiroNome() {
-		return primeiroNome;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setPrimeiroNome(String primeiroNome) {
-		this.primeiroNome = primeiroNome;
-	}
-
-	public String getSegundoNome() {
-		return segundoNome;
-	}
-
-	public void setSegundoNome(String segundoNome) {
-		this.segundoNome = segundoNome;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getCpf() {
@@ -111,14 +82,6 @@ public class Pessoa implements Serializable {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
-	}
-
-	public String getRg() {
-		return rg;
-	}
-
-	public void setRg(String rg) {
-		this.rg = rg;
 	}
 
 	public String getDataNascimento() {
@@ -133,24 +96,8 @@ public class Pessoa implements Serializable {
 		return sexo;
 	}
 
-	public String getGrupo() {
-		return grupo;
-	}
-
-	public void setGrupo(String grupo) {
-		this.grupo = grupo;
-	}
-
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
-	}
-
-	public String getNaturalidade() {
-		return naturalidade;
-	}
-
-	public void setNaturalidade(String naturalidade) {
-		this.naturalidade = naturalidade;
 	}
 
 	public Endereco getEndereco() {
@@ -159,22 +106,6 @@ public class Pessoa implements Serializable {
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
-	}
-
-	public String getMatriculaSuap() {
-		return matriculaSuap;
-	}
-
-	public void setMatriculaSuap(String matriculaSuap) {
-		this.matriculaSuap = matriculaSuap;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
 	}
 
 	public Contato getContato() {
