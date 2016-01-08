@@ -5,9 +5,9 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Entity(name = "Usuario")
-@Table(name = "TB_USUARIO")
-public class Usuario extends Pessoa implements Serializable {
+@Entity(name = "User")
+@Table(name = "TB_USER")
+public class User extends Person implements Serializable {
 
 	/**
 	 * 
@@ -15,9 +15,9 @@ public class Usuario extends Pessoa implements Serializable {
 	private static final long serialVersionUID = 7357769402609376167L;
 
 	private String login;
-	private String senha;
+	private String password;
 
-	public Usuario() {
+	public User() {
 	}
 
 	public String getLogin() {
@@ -28,12 +28,12 @@ public class Usuario extends Pessoa implements Serializable {
 		this.login = login;
 	}
 
-	public String getSenha() {
-		return senha;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setSenha(String senha) {
-		this.senha = senha;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

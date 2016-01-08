@@ -7,10 +7,10 @@
 
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-		<class>br.com.cosmetics.entities.Pessoa</class>
-		<class>br.com.cosmetics.entities.Usuario</class>
-		<class>br.com.cosmetics.entities.Contato</class>
-		<class>br.com.cosmetics.embedded.Endereco</class>
+		<class>br.com.cosmetics.entities.Person</class>
+		<class>br.com.cosmetics.entities.User</class>
+		<class>br.com.cosmetics.entities.Contact</class>
+		<class>br.com.cosmetics.embedded.Address</class>
 
 		<properties>
 			<property name="hibernate.connection.url"

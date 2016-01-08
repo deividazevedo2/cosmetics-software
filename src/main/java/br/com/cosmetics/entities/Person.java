@@ -19,13 +19,13 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Length;
 
-import br.com.cosmetics.embedded.Endereco;
+import br.com.cosmetics.embedded.Address;
 
-@Entity(name = "Pessoa")
-@Table(name = "TB_PESSOA")
+@Entity(name = "Person")
+@Table(name = "TB_PERSON")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorValue("P")
-public class Pessoa implements Serializable {
+public class Person implements Serializable {
 
 	/**
 	 * 
@@ -37,27 +37,26 @@ public class Pessoa implements Serializable {
 	@Column(name = "ID")
 	private Long id;
 
-	@Column(name = "NOME")
-	private String nome;
+	private String name;
 
 	@Column(name = "CPF", unique = true)
 	@Length(min = 11, max = 14, message = "CPF Invalido!")
 	private String cpf;
 
-	@Column(name = "DATA_NASCIMENTO")
-	private String dataNascimento;
+	@Column(name = "BIRTHDAY")
+	private String birthday;
 
-	@Column(name = "SEXO")
-	private String sexo;
+	@Column(name = "GENDER")
+	private String gender;
 
 	@Embedded
-	private Endereco endereco;
+	private Address address;
 
 	@OneToOne(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
-	@JoinColumn(name = "CONTATO_FK", nullable = false)
-	private Contato contato;
+	@JoinColumn(name = "CONTACT_FK", nullable = false)
+	private Contact contact;
 
-	public Pessoa() {
+	public Person() {
 	}
 
 	public Long getId() {
@@ -68,12 +67,12 @@ public class Pessoa implements Serializable {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getCpf() {
@@ -84,36 +83,40 @@ public class Pessoa implements Serializable {
 		this.cpf = cpf;
 	}
 
-	public String getDataNascimento() {
-		return dataNascimento;
+	public String getBirthday() {
+		return birthday;
 	}
 
-	public void setDataNascimento(String dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
 	}
 
-	public String getSexo() {
-		return sexo;
+	public String getGender() {
+		return gender;
 	}
 
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
-	public Endereco getEndereco() {
-		return endereco;
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
-	public Contato getContato() {
-		return contato;
+	public Contact getContact() {
+		return contact;
 	}
 
-	public void setContato(Contato contato) {
-		this.contato = contato;
+	public void setContact(Contact contact) {
+		this.contact = contact;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }

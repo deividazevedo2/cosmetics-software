@@ -12,34 +12,20 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
-@Table(name = "TB_CONTATO")
-public class Contato {
+@Table(name = "TB_CONTACT")
+public class Contact {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String telefoneResidencial;
+	private String homePhone;
 
 	@Length(min = 10, max = 14, message = "Celular Invalido!")
-	private String celular;
+	private String cellPhone;
 
 	@Pattern(regexp = "^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}$", message = "Email Invalido!")
 	private String email;
-
-	@OneToOne(fetch = FetchType.EAGER, mappedBy = "contato")
-	private Pessoa pessoa;
-
-	public Contato() {
-	}
-
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
-	}
-
-	public Pessoa getPessoa() {
-		return pessoa;
-	}
 
 	public Long getId() {
 		return id;
@@ -49,20 +35,20 @@ public class Contato {
 		this.id = id;
 	}
 
-	public String getTelefoneResidencial() {
-		return telefoneResidencial;
+	public String getHomePhone() {
+		return homePhone;
 	}
 
-	public void setTelefoneResidencial(String telefoneResidencial) {
-		this.telefoneResidencial = telefoneResidencial;
+	public void setHomePhone(String homePhone) {
+		this.homePhone = homePhone;
 	}
 
-	public String getCelular() {
-		return celular;
+	public String getCellPhone() {
+		return cellPhone;
 	}
 
-	public void setCelular(String celular) {
-		this.celular = celular;
+	public void setCellPhone(String cellPhone) {
+		this.cellPhone = cellPhone;
 	}
 
 	public String getEmail() {
@@ -71,6 +57,20 @@ public class Contato {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
+	}
+
+	@OneToOne(fetch = FetchType.EAGER, mappedBy = "contact")
+	private Person person;
+
+	public Contact() {
 	}
 
 }
