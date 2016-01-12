@@ -18,20 +18,21 @@
 			<p:panel style="width : 99%; text-align:center">
 				<p:spacer height="30px" />
 				<center>
-					<img src="../resources/logo.png" height="300px" width="239px" />
+					<img src="../resources/logo.png" height="230px" width="230px"
+						style="margin-top: 10%" />
 				</center>
-				<!-- <form method="post" action="j_security_check"> -->
 				<h:form id="login" prependId="false"
 					onsubmit="action='j_security_check';">
-				Login: <input type="text" name="j_username" />
+				Login:
+				<br />
+					<input type="text" name="j_username" />
 					<br />
-					<br />
-				Senha: <input type="password" name="j_password" />
+				Senha:
+				<br />
+					<input type="password" name="j_password" />
 					<br />
 					<br />
 					<input type="submit" value="Entrar" />
-					<input type="reset" value="Limpar" />
-					<!-- </form> -->
 				</h:form>
 				<p:spacer height="145px" />
 			</p:panel>
